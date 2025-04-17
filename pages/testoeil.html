@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test œil mot de passe</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-papbYIErLObSg+x3lmF0UjcRrZ9EdnD6IYJmQn+DB1npKzO7Dk4hx4gJpUOsT/HZCIvUu1q7bVtD0MIxN+xz+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    .password-container {
+      position: relative;
+      max-width: 300px;
+    }
+
+    .password-container input {
+      width: 100%;
+      padding: 12px;
+      padding-right: 40px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: gray;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Mot de passe avec icône</h2>
+  <div class="password-container">
+    <input type="password" id="password" placeholder="Votre mot de passe" />
+    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById("password");
+      const icon = document.querySelector(".toggle-password");
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    }
+  </script>
+
+</body>
+</html>

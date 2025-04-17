@@ -1,0 +1,147 @@
+/* ======= Fichier CSS commun pour Connexion & Inscription ======= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left {
+    flex: 1;
+    background: url('https://i.imgur.com/jxU7LxB.jpeg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .left::after {
+    content: "Chers patients, la santé est notre bien le plus précieux. Mon rôle est de vous accompagner au quotidien, de vous écouter et de vous conseiller pour prévenir les maladies avant qu’elles ne surviennent.\A\AChristine M. - Médecin Généraliste";
+    white-space: pre-line;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 162, 89, 0.9), transparent);
+    color: white;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    width: 100%;
+  }
+  
+  .right {
+    flex: 1;
+    padding: 3rem;
+  }
+  
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #00a259;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #00a259;
+    border-radius: 10px;
+    outline: none;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  .btn {
+    width: 100%;
+    background-color: #00a259;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #038e4b;
+  }
+  
+  .alt-text {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+  
+  .alt-text a {
+    color: #00a259;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .social-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  
+  .social-buttons button {
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  
+  .social-buttons button:hover {
+    border-color: #00a259;
+    color: #00a259;
+  }
+  

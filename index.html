@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MonBonDocteur</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="header-content">
+        <img class="logo" src="image/LOGO-MON.svg" alt="Logo MonBonDocteur" />
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#partners">Partenaires</a></li>
+            <li><a href="#about">A propos</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+          </ul>
+        </nav>
+        <div class="auth-buttons">
+          <button onclick="window.location.href='pages/loading.html'" class="btn-outline">Se connecter</button>
+          <button class="btn-filled">S'inscrire</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1>
+              Trouvez dès <br /> Maintenant <br /> Un <span id="changing-text">docteur...</span>
+            </h1>
+            <h2>Disponible pour vous</h2>
+            <button class="btn-primary">C'est parti</button>
+          </div>
+          <div class="hero-image">
+            <img class="hero-image-2" src="image/Logo md.svg" alt="">
+            <img
+              src="image/vue-face-homme-souriant-portant-blouse-laboratoire.png"
+              alt="Docteur souriant"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section (to be styled with Grid) -->
+      <section class="section-services">
+        <div class="section-header">
+          <h2>Chez <span>monbondocteur.ga</span></h2>
+          <p>Et grâce à sa plateforme moderne, vous disposez de</p>
+        </div>
+      
+        <div class="services-grid">
+          <div class="card">
+            <div class="card-image"></div>
+            <div class="category">Prise de rendez-vous</div>
+            <p>Réservez votre rendez-vous en quelques clics et bénéficiez d’un service rapide, fluide et sans contraintes, pensé pour vous simplifier la vie et vous faire gagner du temps.</p>
+          </div>
+          <div class="card">
+            <div class="card-image"></div>
+            <div class="category">Prise de rendez-vous</div>
+            <p>Réservez votre rendez-vous en quelques clics et bénéficiez d’un service rapide, fluide et sans contraintes, pensé pour vous simplifier la vie et vous faire gagner du temps.</p>
+          </div>
+          <div class="card">
+            <div class="card-image"></div>
+            <div class="category">Prise de rendez-vous</div>
+            <p>Réservez votre rendez-vous en quelques clics et bénéficiez d’un service rapide, fluide et sans contraintes, pensé pour vous simplifier la vie et vous faire gagner du temps.</p>
+          </div>
+        </div>  
+      </section>
+
+      <section class="logo-carousel" id="partners">
+        <div class="carousel-track">
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfH2QztmpBpRJKfT8ls44gC4rjPdF8fnuPQ&s" alt="Logo 1" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJfs1bxO3OhANvS26QueGkgNcXib4MUAbwUg&s" alt="Logo 2" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkEhSTPjUXNb8AqSit-U3eYO8yc-8UwsMyrg&s" alt="Logo 3" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT63NKB77dZgd7XG1dNyQmYLgc-n4ZWfsav8UKsCjI4_JP70zGSFLhMqh4nGVJAeyEuoZk&usqp=CAU" alt="Logo 4" /></div>
+          <div class="logo-slide"><img src="https://gabon4you.com/wp-content/uploads/2021/02/Cabinet-Medical-dOloumi.jpg" alt="Logo 5" /></div>
+      
+          <!-- Double les logos pour boucle fluide -->
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfH2QztmpBpRJKfT8ls44gC4rjPdF8fnuPQ&s" alt="Logo 1" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJfs1bxO3OhANvS26QueGkgNcXib4MUAbwUg&s" alt="Logo 2" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkEhSTPjUXNb8AqSit-U3eYO8yc-8UwsMyrg&s" alt="Logo 3" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT63NKB77dZgd7XG1dNyQmYLgc-n4ZWfsav8UKsCjI4_JP70zGSFLhMqh4nGVJAeyEuoZk&usqp=CAU" alt="Logo 4" /></div>
+          <div class="logo-slide"><img src="https://gabon4you.com/wp-content/uploads/2021/02/Cabinet-Medical-dOloumi.jpg" alt="Logo 5" /></div>
+
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfH2QztmpBpRJKfT8ls44gC4rjPdF8fnuPQ&s" alt="Logo 1" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJfs1bxO3OhANvS26QueGkgNcXib4MUAbwUg&s" alt="Logo 2" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkEhSTPjUXNb8AqSit-U3eYO8yc-8UwsMyrg&s" alt="Logo 3" /></div>
+          <div class="logo-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT63NKB77dZgd7XG1dNyQmYLgc-n4ZWfsav8UKsCjI4_JP70zGSFLhMqh4nGVJAeyEuoZk&usqp=CAU" alt="Logo 4" /></div>
+          <div class="logo-slide"><img src="https://gabon4you.com/wp-content/uploads/2021/02/Cabinet-Medical-dOloumi.jpg" alt="Logo 5" /></div>
+        </div>
+      </section>
+      
+      
+
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <h2 class="title">Des bon retours</h2>
+        <p class="subtitle">
+          Ils ont testé la plateforme et ont découvert une nouvelle manière<br />
+          De se faire traiter depuis leur domicile.
+        </p>
+      
+        <div class="testimonials-grid">
+          <!-- Carte 1 à 6 -->
+          <div class="testimonial-card">
+            <p class="quote">“ Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
+            <div class="author">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6qYPoqC16HP-C0W4P2Emb4Zy9NUnKiS_Pg&s" alt="Jasmine OBONE" />
+              <div class="author-info">
+                <strong>Jasmine OBONE</strong>
+                <span>Il y a 3 semaine</span>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Copiez ce bloc pour en faire 6 -->
+          <!-- ... -->
+          <div class="testimonial-card">
+            <p class="quote">“ Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
+            <div class="author">
+              <img src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png" alt="Jasmine OBONE" />
+              <div class="author-info">
+                <strong>Jasmine OBONE</strong>
+                <span>Il y a 3 semaine</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote">“ Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
+            <div class="author">
+              <img src="https://img.freepik.com/photos-gratuite/rendu-3d-avatar-appel-zoom_23-2149556783.jpg?semt=ais_hybrid&w=740" alt="Jasmine OBONE" />
+              <div class="author-info">
+                <strong>Juste NGUEMA</strong>
+                <span>Il y a 3 semaine</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote">“ Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
+            <div class="author">
+              <img src="https://img.freepik.com/photos-gratuite/rendu-3d-avatar-appel-zoom_23-2149556787.jpg?semt=ais_hybrid&w=740" alt="Jasmine OBONE" />
+              <div class="author-info">
+                <strong>Jasmine</strong>
+                <span>Il y a 3 semaine</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote">“ Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
+            <div class="author">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMXK8AjcuGA_pyZLML3mvfEnK3AQvRmvUMFuhgnZjhCqQvez8Yf7MpX4VhJ5QMYRgNQBs&usqp=CAU" alt="Jasmine OBONE" />
+              <div class="author-info">
+                <strong>Anne Michel</strong>
+                <span>Il y a 3 semaine</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote">“ Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
+            <div class="author">
+              <img src="https://img.freepik.com/photos-gratuite/rendu-3d-avatar-appel-zoom_23-2149556785.jpg?semt=ais_hybrid&w=740" alt="Jasmine OBONE" />
+              <div class="author-info">
+                <strong>Jasmine OBONE</strong>
+                <span>Il y a 3 semaine</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>Tester dès maintenant</h2>
+          <p>monbondocteur.ga</p>
+          <button class="cta-button">
+            <span class="text">C’est parti</span>
+            <span class="icon-circle">
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M7 17L17 7M17 7H9M17 7V15"/>
+              </svg>
+            </span>
+          </button>          
+        </div>
+      </section>
+      
+      
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="image/LOGO-MON.svg" alt="monbondocteur" />
+        </div>
+    
+        <div class="footer-links">
+          <h4>Découvrir</h4>
+          <ul>
+            <li>Nos services</li>
+            <li>Nos partenaires</li>
+            <li>Ce que pensent les gens</li>
+            <li>Politique de confidentialité</li>
+          </ul>
+        </div>
+    
+        <div class="footer-newsletter">
+          <h4>Abonnez-vous à notre newsletter</h4>
+          <p>Restez informé des actualités concernant notre plateforme</p>
+          <input type="email" placeholder="Entrez votre mail" />
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <p>Copyright, Bodri & Jordan 2025</p>
+        <div class="social-icons">
+          <a href="#"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a href="#"><img src="images/instagram.svg" alt="Instagram"></a>
+          <a href="#"><img src="images/x.svg" alt="X"></a>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+
+  <script>
+    const texts = ["docteur...", "médecin...", "spécialiste...", "infirmier..."];
+    let index = 0;
+    const changingText = document.getElementById("changing-text");
+  
+    setInterval(() => {
+      // Étape 1 : fade out
+      changingText.classList.add("fade-out");
+  
+      // Étape 2 : après le fondu sortant, changer le texte puis fade in
+      setTimeout(() => {
+        index = (index + 1) % texts.length;
+        changingText.textContent = texts[index];
+        changingText.classList.remove("fade-out");
+      }, 100); // 500ms = durée du fondu défini dans le CSS
+    }, 2000); // changement toutes les 10 secondes
+  </script>
+  
+  
+</html>

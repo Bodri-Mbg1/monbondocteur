@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inscription - MonBonDocteur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
+  <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+}
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .left {
+      width: 50%;
+      position: relative;
+      overflow: hidden;
+      padding: 10px;
+    }
+    .carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 166, 81, 0.9), rgba(0, 166, 81, 0.0));
+  padding: 25px;
+  min-height: 490px;
+}
+
+
+.overlay p {
+  font-size: 14px;
+  margin-top: 43%;  
+}
+
+.overlay h3 {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.dot {
+  height: 8px;
+  width: 30px;
+  margin: 0 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ffffff;
+}
+
+    /*========RIGHT========*/
+
+    .right {
+      width: 50%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .logo {
+      width: 150px;
+      margin: 0 auto 50px auto;
+    }
+    h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0 auto;
+  display: block;
+  letter-spacing: -0.07em;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 40px;
+  margin: 0 auto 50px auto;
+  display: block;
+  letter-spacing: -0.07em;
+}
+.login-form {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.login-form input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #00a651;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  height: 55px;
+}
+
+.login-form label {
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+    .password-container {
+      position: relative;
+    }
+
+    .password-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00a651;
+  border-radius: 15px;
+  outline: none;
+  padding-left: -40px; /* pour laisser la place à l'icône */
+}
+    .password-container i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+    }
+    .login-btn {
+      background-color: #00a651;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .signup-text {
+      text-align: center;
+      margin-top: 20px;
+      letter-spacing: -0.03em;
+      font-size: 14px;
+    }
+    .signup-text a {
+      color: #00a651;
+      text-decoration: none;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .social-login {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .social-login button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #00a651;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .social-login img {
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left">
+    <div class="carousel">
+      <div class="slides">
+        <div class="slide active">
+          <img src="https://img.freepik.com/photos-premium/portrait-chaleureux-medecin-souriant-stethoscope_1106493-186509.jpg?w=740" />
+          <div class="overlay">
+            <p>"MonBonDocteur est bien plus qu'une simple plateforme de prise de rendez-vous. Elle permet à mes patients de rester connectés à leur santé au quotidien. Grâce à son interface intuitive, même les personnes âgées s’y sentent à l’aise. En tant que médecin généraliste, je gagne un temps précieux et mes patients peuvent me contacter en toute simplicité. C’est une réelle avancée pour une médecine plus humaine et plus proche."</p>
+            <h3>Christine M. - Médecin Généraliste</h3>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://i.pinimg.com/474x/b9/6b/99/b96b996ced8d9f5874d47314cddc837d.jpg" />
+          <div class="overlay">
+            <p>"Depuis que j'utilise MonBonDocteur, je remarque une vraie amélioration dans la gestion de mon cabinet. Les patients peuvent non seulement prendre rendez-vous en ligne, mais aussi accéder à leurs dossiers, recevoir des rappels automatiques, et poser des questions après la consultation. Cela réduit les incompréhensions et renforce notre relation médecin-patient. Je recommande cette plateforme à tous mes confrères."</p>
+            <h3>Dr. Yann D. - Pédiatre</h3>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://i.pinimg.com/474x/66/a4/46/66a44626a635eb117f81d95b6ebc9309.jpg" />
+          <div class="overlay">
+            <p>"En tant que cardiologue, j'ai souvent affaire à des suivis à long terme. MonBonDocteur me permet de garder un lien régulier avec mes patients même en dehors des consultations physiques. Le fait que les utilisateurs puissent recevoir des conseils personnalisés, sauvegarder leurs bilans, et échanger avec moi de manière sécurisée change complètement la donne. C’est un outil fiable et adapté à la médecine moderne."</p>
+            <h3>Dr. Sofia K. - Cardiologue</h3>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://i.pinimg.com/474x/94/6e/cf/946ecf2091b6057cb2179e0d9c000f2d.jpg" />
+          <div class="overlay">
+            <p>"Ce que j’apprécie particulièrement avec MonBonDocteur, c’est la confiance que les parents développent en utilisant l’outil. Ils peuvent facilement gérer les rendez-vous de leurs enfants, poser des questions en toute sérénité et suivre les recommandations post-consultation. En tant que pédiatre, c’est rassurant de savoir que je peux rester joignable dans un cadre structuré et professionnel. Je le recommande sans hésiter."</p>
+            <h3>Dr. Idriss L. - Médecin Généraliste</h3>
+          </div>
+        </div>
+      </div>
+      <div class="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <img src="../image/LOGO-MON.svg" class="logo" alt="Logo" />
+    <h1>Bienvenue, Mbolo !</h1>
+    <p class="subtitle">Sur mobondocteur - La 1ère plateforme web médicale</p>
+    <form class="login-form" id="registerForm">
+      <div class="form-group name-fields">
+        <div style="flex: 1;">
+          <label for="nom">Nom(s)</label>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+        </div>
+        <div style="flex: 1;">
+          <label for="prenom">Prénom(s)</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+        </div>
+      </div>
+    
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Votre email" required />
+
+      <label for="password">Mot de passe</label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" placeholder="Mot de passe" required />
+        <i class="fa-solid fa-unlock-keyhole toggle-password" onclick="togglePassword()"></i>
+      </div>
+
+      <label for="confirm-password">Confirmation mot de passe</label>
+      <div class="password-container">
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmez le mot de passe" required />
+        <i class="fa-solid fa-unlock-keyhole toggle-password" onclick="togglePassword()"></i>
+      </div>
+
+      <button type="submit" class="login-btn">Inscription</button>
+    </form>    
+    <p class="signup-text">Vous avez déjà un compte ? <a href="connexion.html">Connectez-vous</a></p>
+  </div>
+</div>
+</div>
+<script>
+  function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const icon = document.querySelector(".toggle-password");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      icon.classList.remove("fa-unlock-keyhole");
+      icon.classList.add("fa-lock-open");
+    } else {
+      passwordInput.type = "password";
+      icon.classList.remove("fa-lock-open");
+      icon.classList.add("fa-unlock-keyhole");
+    }
+  }
+
+  document.getElementById("registerForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const nom = document.getElementById("nom").value;
+    const prenom = document.getElementById("prenom").value;
+    const email = document.getElementById("email").value;
+    const motDePasse = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+
+    if (motDePasse !== confirmPassword) {
+      alert("Les mots de passe ne correspondent pas.");
+      return;
+    }
+
+    const utilisateur = {
+      nom,
+      prenom,
+      email,
+      motDePasse
+    };
+
+    try {
+      const response = await fetch("http://api-monbondocteur.esiitech-gabon.com/api/utilisateurs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "*/*"
+        },
+        body: JSON.stringify(utilisateur)
+      });
+
+      if (response.ok) {
+        alert("Compte créé avec succès !");
+        window.location.href = "connexion.html"; // Redirection
+      } else {
+        const error = await response.text();
+        alert("Erreur lors de la création: " + error);
+      }
+    } catch (error) {
+      alert("Erreur réseau: " + error.message);
+    }
+  });
+
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      dots[i].classList.remove('active');
+      if (i === index) {
+        slide.classList.add('active');
+        dots[i].classList.add('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
+</body>
+</html>

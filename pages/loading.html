@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chargement...</title>
+  <link rel="icon" type="image/png" href="image/favicon-96x96.png" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #3da266; /* Couleur de fond */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-container {
+      animation: pulse 2s infinite;
+      opacity: 1;
+    }
+
+    .logo-container img {
+      width: 200px;
+      height: auto;
+    }
+
+    @keyframes pulse {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <!-- Ton logo ici -->
+    <img src="../image/LOGO MON blanc.png" alt="Logo MonBonDocteur">
+  </div>
+
+  <script>
+
+    setTimeout(() => {
+      window.location.href = "connexion.html"; // Remplace par ta vraie page
+    }, 3000);
+  </script>
+
+</body>
+</html>

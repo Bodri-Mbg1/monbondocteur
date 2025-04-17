@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MonBonDocteur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    :root {
+        --font-secondary: 'Makizlo', sans-serif;
+    }
+    @font-face {
+    font-family: 'Makizlo';
+    src: url('../fonts/makizlo.otf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f1f1f1;
+    }
+    .sidebar {
+      width: 250px;
+      background: #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid #ddd;
+    }
+    .logo {
+      background-color: #34a853;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .nav-link {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      color: #333;
+      font-weight: 410;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav-link.active,
+    .nav-link:hover {
+      background-color: #34a853;
+      color: white;
+    }
+    .profile {
+      margin-top: auto;
+      text-align: center;
+    }
+    .profile img {
+      border-radius: 10px;
+      border: 2px solid #34a853;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .profile p {
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .profile span {
+      font-size: 12px;
+      color: gray;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 80px;
+      letter-spacing: -4px;
+      margin-bottom: 20px;
+      font-family: var(--font-secondary, 'Montserrat');
+      font-weight: 100;
+    }
+    p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .tabbar {
+  position: relative;
+  margin-top: 30px;
+  background: #ffffff;
+  border-radius: 40px;
+  display: inline-flex;
+  padding: 5px;
+  gap: 10px;
+}
+
+.tabbar .tab {
+  position: relative;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 8px 18px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.tabbar .tab.active {
+  color: white;
+  font-weight: 600;
+}
+
+.tabbar .tab-slider {
+  position: absolute;
+  background-color: #34a853;
+  height: 75%;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="../image/LOGO MON blanc.png" alt="Logo">
+    </div>
+    <div class="nav-link active" onclick="showContent('accueil')">
+      <i class="fas fa-th-large"></i> Accueil
+    </div>
+    <div class="nav-link" onclick="showContent('rendezvous')">
+      <i class="fas fa-notes-medical"></i> Rendez-vous
+    </div>
+    <div class="nav-link" onclick="showContent('messages')">
+      <i class="fas fa-comment-dots"></i> Messages
+    </div>
+    <div class="profile">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profil">
+      <p>Marcus Jackson</p>
+      <span>marjackson@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div id="accueil">
+      <h1>Bienvenue Marcus !</h1>
+      <p>Accédez facilement à vos rendez-vous et messages.</p>
+      <div class="tabbar" id="tabbar">
+        <div class="tab-slider"></div>
+        <button class="tab active" onclick="selectTab(this)">Ce mois</button>
+        <button class="tab" onclick="selectTab(this)">Le mois prochain</button>
+        <button class="tab" onclick="selectTab(this)">Dans 2 mois</button>
+        <button class="tab" onclick="selectTab(this)">Dans 3 mois</button>
+      </div>
+      
+      
+    </div>
+
+    <div id="rendezvous" class="hidden">
+      <h1>Rendez-vous</h1>
+      <p>Voici la liste de vos rendez-vous à venir.</p>
+    </div>
+
+    <div id="messages" class="hidden">
+      <h1>Messages</h1>
+      <p>Consultez vos derniers échanges avec vos médecins.</p>
+    </div>
+  </div>
+
+  <script>
+    function showContent(section) {
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.textContent.includes(section.charAt(0).toUpperCase() + section.slice(1))) {
+          link.classList.add('active');
+        }
+      });
+
+      document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
+      document.getElementById(section).classList.remove('hidden');
+    }
+
+    function selectTab(clickedTab) {
+    const allTabs = document.querySelectorAll('.tabbar .tab');
+    allTabs.forEach(tab => tab.classList.remove('active'));
+    clickedTab.classList.add('active');
+
+    const tabbar = document.getElementById('tabbar');
+    const slider = tabbar.querySelector('.tab-slider');
+
+    const tabRect = clickedTab.getBoundingClientRect();
+    const barRect = tabbar.getBoundingClientRect();
+
+    slider.style.width = `${tabRect.width}px`;
+    slider.style.transform = `translateX(${tabRect.left - barRect.left}px)`;
+  }
+
+  // Init slider on page load
+  window.addEventListener('load', () => {
+    const activeTab = document.querySelector('.tabbar .tab.active');
+    if (activeTab) {
+      selectTab(activeTab);
+    }
+  });
+  </script>
+</body>
+</html>
