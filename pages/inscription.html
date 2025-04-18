@@ -6,7 +6,7 @@
   <title>Inscription - MonBonDocteur</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="../image/favicon-96x96.png" sizes="96x96" />
   <style>
 
 * {
@@ -233,9 +233,44 @@
     .social-login img {
       width: 20px;
     }
+    
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    }
   </style>
 </head>
+
+
+
+
+
+
 <body>
+    
+    <!-- ✅ Message toast de succès -->
+<div id="toast-success" style="
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #00a651;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-weight: 600;
+  z-index: 9999;
+  animation: slideIn 0.4s ease-out;
+">
+  ✅ Compte créé avec succès !
+</div>
 <div class="container">
   <div class="left">
     <div class="carousel">
@@ -312,8 +347,12 @@
     </form>    
     <p class="signup-text">Vous avez déjà un compte ? <a href="connexion.html">Connectez-vous</a></p>
   </div>
+ 
+
 </div>
 </div>
+</body>
+
 <script>
   function togglePassword() {
     const passwordInput = document.getElementById("password");
@@ -329,49 +368,71 @@
     }
   }
 
-  document.getElementById("registerForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-    const nom = document.getElementById("nom").value;
-    const prenom = document.getElementById("prenom").value;
-    const email = document.getElementById("email").value;
-    const motDePasse = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
+  const nom = document.getElementById("nom").value;
+  const prenom = document.getElementById("prenom").value;
+  const email = document.getElementById("email").value;
+  const motDePasse = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
 
-    if (motDePasse !== confirmPassword) {
-      alert("Les mots de passe ne correspondent pas.");
-      return;
-    }
+  if (motDePasse !== confirmPassword) {
+    alert("Les mots de passe ne correspondent pas.");
+    return;
+  }
 
-    const utilisateur = {
-      nom,
-      prenom,
-      email,
-      motDePasse
-    };
+  const utilisateur = {
+    id: 0,
+    nom: nom.trim(),
+    prenom: prenom.trim(),
+    email: email.trim(),
+    motDePasse: motDePasse,
+    role: "USER"
+  };
 
+  try {
+    const response = await fetch("https://api-monbondocteur.esiitech-gabon.com/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(utilisateur)
+    });
+
+    let data = {};
+    const text = await response.text();
     try {
-      const response = await fetch("http://api-monbondocteur.esiitech-gabon.com/api/utilisateurs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "*/*"
-        },
-        body: JSON.stringify(utilisateur)
-      });
-
-      if (response.ok) {
-        alert("Compte créé avec succès !");
-        window.location.href = "connexion.html"; // Redirection
-      } else {
-        const error = await response.text();
-        alert("Erreur lors de la création: " + error);
-      }
-    } catch (error) {
-      alert("Erreur réseau: " + error.message);
+      data = text ? JSON.parse(text) : {};
+    } catch (err) {
+      console.warn("Réponse non-JSON ou vide :", text);
     }
-  });
 
+    if (response.ok) {
+      const toast = document.getElementById("toast-success");
+      toast.style.display = "block";
+
+      // Sauvegarder l’email pour la vérification OTP
+      sessionStorage.setItem("emailActivation", utilisateur.email);
+
+      setTimeout(() => {
+        toast.style.display = "none";
+        window.location.href = "inscription_verificed.html";
+      }, 3000);
+    } else {
+      alert(`Erreur lors de la création (${response.status}) : ${data.message || "Aucune information fournie."}`);
+    }
+  } catch (error) {
+    alert("Erreur réseau : " + error.message);
+  }
+});
+
+
+
+
+
+  // Ce code était accidentellement dans le bloc try, on le remet dehors
   let currentIndex = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
@@ -394,5 +455,5 @@
 
   setInterval(nextSlide, 5000);
 </script>
-</body>
+
 </html>
